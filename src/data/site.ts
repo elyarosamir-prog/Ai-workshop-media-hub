@@ -30,6 +30,10 @@ export const site = {
   footerLine: "صُنع بالتعاون بين أعضاء Media Hub وأعضاء نادي التطوع.",
   footerSub: "Media Hub | Volunteer Club",
 };
+export const wifi = {
+  ssid: "caritaas",
+  password: "anamasry4321#",
+};
 
 /**
  * بطاقات "عن الورشة" الثلاث
