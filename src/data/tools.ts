@@ -93,7 +93,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "مساعد ذكاء اصطناعي عام للمحادثة والكتابة والإجابة على الأسئلة.",
     howItHelpsCommittees: "يمكن استخدامه كأداة عامة لدعم أي لجنة في الكتابة والتفكير.",
     example: "العصف الذهني لأفكار أنشطة جديدة للجنة.",
-    link: PLACEHOLDER_LINK,
+    link: https://chatgpt.com,
     isCore: false,
   },
   {
@@ -102,7 +102,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "مساعد ذكاء اصطناعي من Google للكتابة والبحث والتحليل.",
     howItHelpsCommittees: "دعم إضافي للجان في الكتابة والبحث السريع.",
     example: "تلخيص نتائج بحث سريع حول موضوع فعالية.",
-    link: PLACEHOLDER_LINK,
+    link: https://gemini.google.com,
     isCore: false,
   },
   {
@@ -111,7 +111,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "أدوات ذكاء اصطناعي داخل Canva لتسريع التصميم الجرافيكي.",
     howItHelpsCommittees: "تسهّل على لجنة الميديا تصميم البوسترات والمنشورات.",
     example: "توليد خلفية أو تصميم أولي لبوستر فعالية.",
-    link: PLACEHOLDER_LINK,
+    link: https://www.canva.com,
     isCore: false,
   },
   {
@@ -120,7 +120,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "أدوات تنشئ صورًا من وصف نصي.",
     howItHelpsCommittees: "توفر خامات بصرية سريعة للتصميم والمحتوى.",
     example: "توليد صورة توضيحية لفكرة منشور قبل تصميمه النهائي.",
-    link: PLACEHOLDER_LINK,
+    link:https://firefly.adobe.com,
     isCore: false,
   },
   {
@@ -129,7 +129,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "أدوات تنشئ مقاطع فيديو قصيرة من وصف نصي أو صور.",
     howItHelpsCommittees: "تساعد لجنة الميديا في تجربة أفكار فيديو بسرعة.",
     example: "تجربة مشهد ترويجي قصير لفعالية.",
-    link: PLACEHOLDER_LINK,
+    link: https://runwayml.com,
     isCore: false,
   },
   {
@@ -138,7 +138,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "أدوات مونتاج تستخدم الذكاء الاصطناعي لتسريع تحرير الفيديو.",
     howItHelpsCommittees: "تسهّل مونتاج فيديوهات التوثيق والريلز الخاصة بالنادي.",
     example: "إضافة ترجمة تلقائية لفيديو توثيق فعالية.",
-    link: PLACEHOLDER_LINK,
+    link: https://www.capcut.com,
     isCore: false,
   },
   {
@@ -147,7 +147,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "مساعد ذكاء اصطناعي مدمج مع أدوات Microsoft.",
     howItHelpsCommittees: "يدعم كتابة المستندات والعروض والتقارير.",
     example: "المساعدة في إعداد عرض تقديمي لتقرير لجنة.",
-    link: PLACEHOLDER_LINK,
+    link: https://copilot.microsoft.com,
     isCore: false,
   },
   {
@@ -156,7 +156,7 @@ export const additionalTools: Tool[] = [
     whatItDoes: "محرك بحث يعتمد على الذكاء الاصطناعي مع مصادر موثقة.",
     howItHelpsCommittees: "يسرّع البحث عن معلومات موثوقة لدعم قرارات اللجان.",
     example: "البحث السريع عن إحصائية أو معلومة لدعم تقرير.",
-    link: PLACEHOLDER_LINK,
+    link: https://www.perplexity.ai,
     isCore: false,
   },
 ];
