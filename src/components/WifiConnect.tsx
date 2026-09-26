@@ -2,6 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import { wifi } from "../data/site";
 
+/**
+ * زرار + مودال للاتصال بواي فاي المكان.
+ * أسهل وأضمن طريقة تشتغل على كل الموبايلات (أندرويد وآيفون) هي:
+ * مسح كود QR بكاميرا الموبايل، فبيقترح النظام الاتصال بالشبكة تلقائيًا
+ * بدون ما المستخدم يكتب أي حاجة.
+ *
+ * لتغيير اسم الشبكة أو الباسورد: عدّل src/data/site.ts -> wifi
+ */
 export default function WifiConnect() {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -24,7 +32,9 @@ export default function WifiConnect() {
       await navigator.clipboard.writeText(wifi.password);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
-    } catch {}
+    } catch {
+      /* تجاهل لو المتصفح مش بيدعم النسخ التلقائي */
+    }
   };
 
   return (
@@ -40,10 +50,20 @@ export default function WifiConnect() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4" onClick={() => setOpen(false)}>
-          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-xs rounded-2xl bg-white p-6 text-center shadow-2xl dark:bg-brand-black dark:border dark:border-white/10">
-            <h3 className="mb-1 text-lg font-extrabold text-brand-black dark:text-white">اتصل بواي فاي المكان</h3>
-            <p className="mb-4 text-xs text-brand-grey-text dark:text-white/50">افتح كاميرا موبايلك ووجّهها على الكود</p>
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-xs rounded-2xl bg-white p-6 text-center shadow-2xl dark:bg-brand-black dark:border dark:border-white/10"
+          >
+            <h3 className="mb-1 text-lg font-extrabold text-brand-black dark:text-white">
+              اتصل بواي فاي المكان
+            </h3>
+            <p className="mb-4 text-xs text-brand-grey-text dark:text-white/50">
+              افتح كاميرا موبايلك ووجّهها على الكود
+            </p>
 
             <div className="mx-auto mb-4 w-fit rounded-xl border border-black/10 bg-white p-2 dark:border-white/10">
               <canvas ref={canvasRef} />
@@ -56,13 +76,19 @@ export default function WifiConnect() {
               <div className="flex items-center justify-center gap-2">
                 <span className="text-brand-grey-text dark:text-white/60">كلمة السر:</span>
                 <span className="font-bold text-brand-black dark:text-white">{wifi.password}</span>
-                <button onClick={copyPassword} className="rounded-full bg-brand-red/10 px-2.5 py-1 text-[11px] font-bold text-brand-red hover:bg-brand-red hover:text-white">
+                <button
+                  onClick={copyPassword}
+                  className="rounded-full bg-brand-red/10 px-2.5 py-1 text-[11px] font-bold text-brand-red hover:bg-brand-red hover:text-white"
+                >
                   {copied ? "تم النسخ ✓" : "نسخ"}
                 </button>
               </div>
             </div>
 
-            <button onClick={() => setOpen(false)} className="w-full rounded-full bg-brand-red py-2.5 text-sm font-bold text-white hover:bg-brand-red-dark">
+            <button
+              onClick={() => setOpen(false)}
+              className="w-full rounded-full bg-brand-red py-2.5 text-sm font-bold text-white hover:bg-brand-red-dark"
+            >
               تمام
             </button>
           </div>

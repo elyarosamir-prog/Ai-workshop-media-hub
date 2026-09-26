@@ -30,6 +30,11 @@ export const site = {
   footerLine: "صُنع بالتعاون بين أعضاء Media Hub وأعضاء نادي التطوع.",
   footerSub: "Media Hub | Volunteer Club",
 };
+
+/**
+ * بيانات واي فاي المكان
+ * لو اتغيرت الشبكة أو الباسورد، عدّل القيم هنا فقط وهيتحدث الزرار والـQR تلقائيًا
+ */
 export const wifi = {
   ssid: "caritaas",
   password: "anamasry4321#",

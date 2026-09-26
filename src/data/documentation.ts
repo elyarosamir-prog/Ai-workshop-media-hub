@@ -45,8 +45,12 @@ export const outcomes = [
   { label: "أبرز تعليقات الحضور", value: PENDING },
 ];
 
-/** رابط فيديو المفاجأة/التشويق أو التوثيق — أضفه بعد جاهزيته */
+/** رابط فيديو المفاجأة/التشويق أو التوثيق — أضفه بعد جاهزيته
+ *  لو الفيديو ملف محلي في public/assets حط مساره هنا (زي المثال)
+ *  ولو رابط يوتيوب/درايف Embed حطه بدل كده وهيتفتح في iframe تلقائيًا
+ */
 export const teaserVideo = {
-  url: "", // مثال: "https://www.youtube.com/embed/XXXXXXXXXXX"
-  isReady: false,
+  url: "/assets/teaser-video.mp4",
+  poster: "/assets/teaser-poster.jpg",
+  isReady: true,
 };

@@ -26,6 +26,7 @@ html {
   scroll-padding-top: 104px;
 }
 
+/* إخفاء شريط تمرير شريط الروابط العلوي مع إبقاء إمكانية التمرير */
 .scrollbar-none {
   scrollbar-width: none;
   -ms-overflow-style: none;

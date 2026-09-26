@@ -4,6 +4,14 @@ import { assets } from "../data/site";
 import ThemeToggle from "./ThemeToggle";
 import WifiConnect from "./WifiConnect";
 
+/**
+ * روابط التنقل. الروابط التي تبدأ بـ "/#" هي أقسام داخل الصفحة الرئيسية،
+ * والباقي صفحات مستقلة لها مسار خاص بها.
+ *
+ * ملاحظة: الروابط دي ظاهرة دايمًا (على الموبايل والكمبيوتر) في شريط
+ * قابل للتمرير الأفقي، بدون قائمة مخفية (Hamburger) — عشان تبقى واضحة
+ * وسهلة الوصول لأي حد يفتح الموقع من موبايله.
+ */
 const navLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "عن الورشة", href: "/#about" },
@@ -56,6 +64,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* شريط الروابط: ظاهر دايمًا على كل المقاسات، وقابل للتمرير الأفقي لو مساحته أكبر من الشاشة */}
       <nav className="border-t border-black/5 dark:border-white/10">
         <ul className="scrollbar-none flex max-w-7xl gap-1 overflow-x-auto px-3 py-2 sm:mx-auto sm:px-6">
           {navLinks.map((link) => (

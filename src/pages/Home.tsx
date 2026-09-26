@@ -172,9 +172,25 @@ export default function Home() {
         <div className="mx-auto max-w-2xl">
           <h2 className="text-2xl font-extrabold text-white sm:text-3xl">مفاجأة Media Hub</h2>
           {teaserVideo.isReady && teaserVideo.url ? (
-            <div className="mt-8 aspect-video overflow-hidden rounded-2xl border border-white/10">
-              <iframe src={teaserVideo.url} title="فيديو الورشة" className="h-full w-full" allowFullScreen />
-            </div>
+            teaserVideo.url.startsWith("http") ? (
+              // رابط خارجي (يوتيوب/درايف) يتفتح في iframe
+              <div className="mt-8 aspect-video overflow-hidden rounded-2xl border border-white/10">
+                <iframe src={teaserVideo.url} title="فيديو الورشة" className="h-full w-full" allowFullScreen />
+              </div>
+            ) : (
+              // ملف فيديو محلي داخل public/assets
+              <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+                <video
+                  src={teaserVideo.url}
+                  poster={teaserVideo.poster}
+                  controls
+                  preload="metadata"
+                  className="w-full"
+                >
+                  متصفحك لا يدعم تشغيل الفيديو مباشرة.
+                </video>
+              </div>
+            )
           ) : (
             <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-brand-red/40 bg-white/5 px-6 py-14">
               <span className="text-3xl">🤖</span>
