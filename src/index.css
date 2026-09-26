@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* تفعيل الوضع الداكن عبر إضافة class="dark" على عنصر <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  =========================================================
+  ملف التصميم العام (Design Tokens)
+  لتغيير الألوان الأساسية للموقع، عدّل القيم هنا فقط
+  =========================================================
+*/
+@theme {
+  --font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-red: #E31E24;
+  --color-brand-red-dark: #A80F18;
+  --color-brand-black: #111111;
+  --color-brand-white: #FFFFFF;
+  --color-brand-grey-light: #F5F5F5;
+  --color-brand-grey-text: #555555;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  font-family: 'Cairo', ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-brand-white);
+  color: var(--color-brand-black);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: var(--color-brand-black);
+  color: var(--color-brand-white);
+}
+
+::selection {
+  background-color: var(--color-brand-red);
+  color: white;
+}
+
+/* شريط تمرير أنحف ومتوافق مع هوية الموقع */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-brand-grey-light); }
+::-webkit-scrollbar-thumb { background: var(--color-brand-red); border-radius: 8px; }
+
+/* حركة ماسح ضوئي واحدة عند تحميل الـHero */
+@keyframes tech-scan-move {
+  0% { transform: translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(-100vw); opacity: 0; }
+}
+.tech-scan {
+  animation: tech-scan-move 3.5s ease-in-out 0.3s 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
