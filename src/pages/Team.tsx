@@ -13,11 +13,14 @@ export default function Team() {
               key={member.name}
               className="flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-brand-grey-light px-5 py-4 dark:border-white/10 dark:bg-white/[0.04]"
             >
-              <div>
+              <div className="flex items-center gap-3">
+                {member.photo && <img src={member.photo} alt={member.name} className="h-11 w-11 rounded-full object-cover" />}
+                <div>
                 <p className="font-extrabold text-brand-black dark:text-white">{member.name}</p>
                 {member.note && (
                   <p className="mt-1 text-xs leading-relaxed text-brand-grey-text dark:text-white/50">{member.note}</p>
                 )}
+                </div>
               </div>
               <span className="shrink-0 rounded-full bg-brand-red/10 px-3 py-1.5 text-xs font-bold text-brand-red">
                 {member.role}
@@ -32,7 +35,7 @@ export default function Team() {
           {teamGalleryPlaceholders.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-black/15 bg-brand-grey-light p-10 text-center dark:border-white/15 dark:bg-white/[0.03]">
               <p className="text-sm text-brand-grey-text dark:text-white/50">
-                سيتم إضافة صور الفريق ولقطات التنفيذ هنا بعد الورشة.
+                سيتم إضافة المادة قريبًا.
               </p>
             </div>
           ) : (

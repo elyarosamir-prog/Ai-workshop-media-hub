@@ -14,6 +14,7 @@ const badges = [
   { label: site.workshopLocation, icon: "pin" },
   { label: `تنظيم ${site.organizer}`, icon: "spark" },
   { label: site.audience, icon: "users" },
+  { label: site.wifiNote, icon: "spark" },
 ];
 
 const icons: Record<string, ReactNode> = {
@@ -59,11 +60,11 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl font-black leading-tight text-brand-black sm:text-5xl lg:text-6xl dark:text-white">
-              {site.workshopName}
+              {site.docTitle}
             </h1>
             <p className="mt-3 text-xl font-bold text-brand-red sm:text-2xl">{site.tagline}</p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-brand-grey-text sm:text-lg dark:text-white/70">
-              {site.heroText}
+              {site.docText}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2.5">
@@ -171,6 +172,7 @@ export default function Home() {
       <section id="teaser" className="scroll-mt-24 bg-brand-black px-4 py-16 text-center sm:px-6 sm:py-20">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-2xl font-extrabold text-white sm:text-3xl">مفاجأة Media Hub</h2>
+          <p className="mt-2 text-sm text-white/60">فيديو من تجهيزات وتغطية ورشة الذكاء الاصطناعي.</p>
           {teaserVideo.isReady && teaserVideo.url ? (
             teaserVideo.url.startsWith("http") ? (
               // رابط خارجي (يوتيوب/درايف) يتفتح في iframe
@@ -187,7 +189,7 @@ export default function Home() {
                   preload="metadata"
                   className="w-full"
                 >
-                  متصفحك لا يدعم تشغيل الفيديو مباشرة.
+                  <a href={teaserVideo.url}>افتح الفيديو</a>
                 </video>
               </div>
             )

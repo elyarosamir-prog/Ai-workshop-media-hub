@@ -26,14 +26,18 @@ export const site = {
   aboutText:
     "ورشة عملية ينظمها Media Hub لأعضاء نادي التطوع بالكامل، بهدف التعرف على مجموعة من أدوات الذكاء الاصطناعي وتجربة استخدامها في مهام حقيقية مرتبطة بالعمل التطوعي واللجان المختلفة.",
   updateBannerText:
-    "سيتم تحديث الموقع بمحتوى الورشة وصورها ونتائجها بعد انتهاء اليوم.",
+    "يتم تحديث الموقع بمحتوى الورشة وصورها ونتائجها.",
+  docTitle: "توثيق ورشة الذكاء الاصطناعي",
+  docText:
+    "ورشة عملية نظمها Media Hub لأعضاء نادي التطوع للتعرف على أدوات الذكاء الاصطناعي وتجربة استخدامها في شغل اللجان.",
+  wifiNote: "كان Wi-Fi الجمعية متاحًا أثناء الورشة.",
   footerLine: "صُنع بالتعاون بين أعضاء Media Hub وأعضاء نادي التطوع.",
   footerSub: "Media Hub | Volunteer Club",
 };
 
 /**
- * بيانات واي فاي المكان
- * لو اتغيرت الشبكة أو الباسورد، عدّل القيم هنا فقط وهيتحدث الزرار والـQR تلقائيًا
+ * شبكة واي فاي الجمعية (مفتوحة للجميع). عدّل هنا لو اتغيرت.
+ * الباسورد بيدخل في الـQR بس ومش بيظهر كنص في الموقع.
  */
 export const wifi = {
   ssid: "caritaas",
@@ -66,4 +70,5 @@ export const assets = {
   logoMediaHub: "/assets/logo-media-hub.png",
   logoAnaMasry: "/assets/logo-ana-masry.png",
   posterWorkshop: "/assets/poster-workshop.jpg",
+  agendaDesign: "/assets/agenda-design.jpg",
 };

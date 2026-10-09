@@ -22,18 +22,23 @@ export const mediaLinks: MediaLink[] = [
 export const documentationSections = [
   "صور الورشة",
   "الصورة الجماعية",
-  "لقطات الأنشطة",
+  "صور الأنشطة",
+  "صور الـFeedback",
   "فيديو الإعلان",
-  "فيديو الـFeedback",
-  "الريلز",
-  "نتائج المشاركين",
+  "فيديو التشويق",
+  "فيديوهات TikTok أو Reels (تنفيذ هايدي)",
+  "مواد العروض",
+  "اللعبة التفاعلية",
+  "كشف أو ملخص الحضور",
+  "أبرز تعليقات المشاركين",
 ];
 
 /**
  * "ماذا خرجنا به؟" — أرقام ونتائج الورشة
  * القيمة الافتراضية "سيتم التحديث بعد الورشة." ولا يجب استبدالها بأرقام وهمية
  */
-export const PENDING = "سيتم التحديث بعد الورشة.";
+export const PENDING = "سيتم التحديث بعد مراجعة بيانات الورشة.";
+export const MEDIA_PENDING = "سيتم إضافة المادة قريبًا.";
 
 export const outcomes = [
   { label: "عدد الحاضرين", value: PENDING },
@@ -54,3 +59,41 @@ export const teaserVideo = {
   poster: "/assets/teaser-poster.jpg",
   isReady: true,
 };
+
+/** ريلز الورشة — أضف فيديو جديد بنفس الشكل. poster صورة الغلاف (اختيارية) */
+export interface ReelItem {
+  title: string;
+  by: string;
+  src: string;
+  poster?: string;
+  /** portrait = بالطول، landscape = بالعرض */
+  orientation: "portrait" | "landscape";
+}
+
+export const reels: ReelItem[] = [
+  {
+    orientation: "portrait",
+    title: "ريلز كواليس وتنظيم الورشة",
+    by: "تنفيذ هايدي",
+    src: "/media/reel-haidy.mp4",
+    poster: "/media/reel-haidy-poster.jpg",
+  },
+];
+
+/** ترندات وطرائف الورشة (تيك توك) — من تنفيذ الفريق والمشاركين */
+export const trends: ReelItem[] = [
+  {
+    title: "ترند الاستيكر في ورشة الـAI",
+    by: "من تنفيذ الفريق والمشاركين",
+    src: "/media/trend-sticker.mp4",
+    poster: "/media/trend-sticker-poster.jpg",
+    orientation: "portrait",
+  },
+  {
+    title: "فيديو ترند من ورشة الـAI",
+    by: "من تنفيذ الفريق والمشاركين",
+    src: "/media/trend-video.mp4",
+    poster: "/media/trend-video-poster.jpg",
+    orientation: "landscape",
+  },
+];

@@ -18,6 +18,7 @@ const navLinks = [
   { label: "الأجندة", href: "/agenda" },
   { label: "الأدوات", href: "/tools" },
   { label: "التطبيقات العملية", href: "/#applications" },
+  { label: "مواد الورشة", href: "/materials" },
   { label: "فريق التنفيذ", href: "/team" },
   { label: "التشويق", href: "/#teaser" },
   { label: "التوثيق والنتائج", href: "/documentation" },

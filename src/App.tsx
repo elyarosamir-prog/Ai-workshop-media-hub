@@ -6,6 +6,7 @@ import ScrollToHash from "./components/ScrollToHash";
 import Home from "./pages/Home";
 import Agenda from "./pages/Agenda";
 import Tools from "./pages/Tools";
+import Materials from "./pages/Materials";
 import Team from "./pages/Team";
 import Documentation from "./pages/Documentation";
 
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/tools" element={<Tools />} />
+          <Route path="/materials" element={<Materials />} />
           <Route path="/team" element={<Team />} />
           <Route path="/documentation" element={<Documentation />} />
         </Routes>
