@@ -3,6 +3,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import ScrollToHash from "./components/ScrollToHash";
+import About from "./pages/About";
+import Applications from "./pages/Applications";
+import Faq from "./pages/Faq";
+import Teaser from "./pages/Teaser";
+import Reels from "./pages/Reels";
+import Results from "./pages/Results";
+import Games from "./pages/Games";
 import Home from "./pages/Home";
 import Agenda from "./pages/Agenda";
 import Tools from "./pages/Tools";
@@ -23,6 +30,13 @@ export default function App() {
           <Route path="/materials" element={<Materials />} />
           <Route path="/team" element={<Team />} />
           <Route path="/documentation" element={<Documentation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/applications" element={<Applications />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/teaser" element={<Teaser />} />
+          <Route path="/reels" element={<Reels />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/games" element={<Games />} />
         </Routes>
       </main>
       <Footer />

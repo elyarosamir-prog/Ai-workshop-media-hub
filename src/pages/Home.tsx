@@ -1,12 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { site, aboutCards, assets } from "../data/site";
-import { applications } from "../data/applications";
-import { faq } from "../data/faq";
-import { teaserVideo } from "../data/documentation";
+import { site, assets } from "../data/site";
 import TechBackground from "../components/TechBackground";
-import SectionHeading from "../components/SectionHeading";
-import Accordion from "../components/Accordion";
 
 const badges = [
   { label: site.workshopDate, icon: "calendar" },
@@ -15,6 +10,21 @@ const badges = [
   { label: `تنظيم ${site.organizer}`, icon: "spark" },
   { label: site.audience, icon: "users" },
   { label: site.wifiNote, icon: "spark" },
+];
+
+const quickLinks = [
+  { to: "/about", label: "عن الورشة", desc: "فكرة الورشة وهدفها" },
+  { to: "/agenda", label: "الأجندة", desc: "فقرات اليوم بالتوقيت" },
+  { to: "/tools", label: "الأدوات", desc: "أدوات الذكاء الاصطناعي وروابطها" },
+  { to: "/applications", label: "التطبيقات العملية", desc: "استخدامها في شغل اللجان" },
+  { to: "/materials", label: "مواد الورشة", desc: "العروض للفتح والتحميل" },
+  { to: "/games", label: "الألعاب", desc: "تجربة تفاعلية من الورشة" },
+  { to: "/team", label: "فريق التنفيذ", desc: "مين اشتغل في الورشة" },
+  { to: "/teaser", label: "مفاجأة Media Hub", desc: "فيديو من التجهيزات" },
+  { to: "/documentation", label: "توثيق اليوم", desc: "صور وملفات الورشة" },
+  { to: "/reels", label: "الريلز", desc: "ريلز وترندات الورشة" },
+  { to: "/results", label: "ماذا خرجنا به؟", desc: "نتائج الورشة" },
+  { to: "/faq", label: "الأسئلة الشائعة", desc: "إجابات سريعة" },
 ];
 
 const icons: Record<string, ReactNode> = {
@@ -93,7 +103,7 @@ export default function Home() {
                 شاهد الأجندة
               </Link>
               <Link
-                to="/#about"
+                to="/about"
                 className="rounded-full px-6 py-3 text-sm font-bold text-brand-grey-text transition hover:text-brand-red dark:text-white/70"
               >
                 اعرف عن الورشة ←
@@ -118,96 +128,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================== عن الورشة ===================== */}
-      <section id="about" className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 sm:py-20 dark:bg-brand-black">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading title="عن الورشة" subtitle={site.aboutText} />
-          <div className="grid gap-5 sm:grid-cols-3">
-            {aboutCards.map((c) => (
-              <div
-                key={c.title}
-                className="rounded-2xl border-s-4 border-brand-red bg-brand-grey-light p-6 transition hover:-translate-y-1 dark:bg-white/[0.04]"
-              >
-                <h3 className="mb-2 font-extrabold text-brand-black dark:text-white">{c.title}</h3>
-                <p className="text-sm leading-relaxed text-brand-grey-text dark:text-white/60">{c.text}</p>
-              </div>
+      {/* ===================== تصفح الموقع ===================== */}
+      <section className="bg-brand-grey-light px-4 py-14 sm:px-6 dark:bg-brand-black">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-6 text-center text-xl font-extrabold text-brand-black dark:text-white">تصفح الموقع</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {quickLinks.map((q) => (
+              <Link key={q.to} to={q.to} className="rounded-xl border border-black/10 bg-white p-4 transition hover:border-brand-red dark:border-white/10 dark:bg-white/[0.04]">
+                <p className="font-extrabold text-brand-black dark:text-white">{q.label}</p>
+                <p className="mt-1 text-xs text-brand-grey-text dark:text-white/50">{q.desc}</p>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ===================== التطبيقات العملية ===================== */}
-      <section id="applications" className="scroll-mt-24 bg-brand-grey-light px-4 py-16 sm:px-6 sm:py-20 dark:bg-white/[0.02]">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            title="من الورشة إلى شغل اللجان"
-            subtitle="أمثلة عملية على استخدام أدوات الذكاء الاصطناعي داخل لجان نادي التطوع."
-          />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {applications.map((app) => (
-              <div
-                key={app.task}
-                className="rounded-xl border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]"
-              >
-                <h3 className="mb-1.5 text-sm font-extrabold text-brand-black dark:text-white">{app.task}</h3>
-                <p className="mb-2 text-xs leading-relaxed text-brand-grey-text dark:text-white/60">{app.howAiHelps}</p>
-                <p className="mb-3 text-xs leading-relaxed text-brand-black/70 dark:text-white/50">
-                  <span className="font-semibold text-brand-red">مثال: </span>
-                  {app.example}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {app.suitableTools.map((t) => (
-                    <span key={t} className="rounded-full bg-brand-red/10 px-2.5 py-1 text-[11px] font-semibold text-brand-red">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== قسم التشويق والفيديو ===================== */}
-      <section id="teaser" className="scroll-mt-24 bg-brand-black px-4 py-16 text-center sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-2xl font-extrabold text-white sm:text-3xl">مفاجأة Media Hub</h2>
-          <p className="mt-2 text-sm text-white/60">فيديو من تجهيزات وتغطية ورشة الذكاء الاصطناعي.</p>
-          {teaserVideo.isReady && teaserVideo.url ? (
-            teaserVideo.url.startsWith("http") ? (
-              // رابط خارجي (يوتيوب/درايف) يتفتح في iframe
-              <div className="mt-8 aspect-video overflow-hidden rounded-2xl border border-white/10">
-                <iframe src={teaserVideo.url} title="فيديو الورشة" className="h-full w-full" allowFullScreen />
-              </div>
-            ) : (
-              // ملف فيديو محلي داخل public/assets
-              <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
-                <video
-                  src={teaserVideo.url}
-                  poster={teaserVideo.poster}
-                  controls
-                  preload="metadata"
-                  className="w-full"
-                >
-                  <a href={teaserVideo.url}>افتح الفيديو</a>
-                </video>
-              </div>
-            )
-          ) : (
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-brand-red/40 bg-white/5 px-6 py-14">
-              <span className="text-3xl">🤖</span>
-              <p className="text-lg font-bold text-white">مفاجأة Media Hub قيد التجهيز… ترقبوها قريبًا 🤖</p>
-              <p className="text-sm text-white/50">سيتم تحديث هذا القسم بالفيديو التشويقي أو فيديو توثيق الورشة عند جاهزيته.</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ===================== الأسئلة الشائعة ===================== */}
-      <section id="faq" className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 sm:py-20 dark:bg-brand-black">
-        <div className="mx-auto max-w-3xl">
-          <SectionHeading title="أسئلة شائعة" />
-          <Accordion items={faq} />
         </div>
       </section>
     </div>

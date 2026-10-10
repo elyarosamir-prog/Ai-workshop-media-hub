@@ -1,4 +1,4 @@
-import { materials, game, MATERIAL_PENDING } from "../data/materials";
+import { materials, MATERIAL_PENDING } from "../data/materials";
 import SectionHeading from "../components/SectionHeading";
 
 export default function Materials() {
@@ -43,17 +43,6 @@ export default function Materials() {
           })}
         </div>
 
-        <div className="mt-10 rounded-2xl bg-brand-black p-6 text-center">
-          <h3 className="mb-1 text-lg font-extrabold text-white">{game.title}</h3>
-          <p className="mb-4 text-sm text-white/60">{game.description}</p>
-          {game.url ? (
-            <a href={game.url} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full bg-brand-red px-6 py-2.5 text-sm font-bold text-white hover:bg-brand-red-dark">
-              جرّب اللعبة
-            </a>
-          ) : (
-            <span className="inline-block rounded-full border border-dashed border-white/30 px-5 py-2 text-xs text-white/60">{game.pending}</span>
-          )}
-        </div>
       </div>
     </div>
   );

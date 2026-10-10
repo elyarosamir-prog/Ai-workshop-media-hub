@@ -29,19 +29,22 @@ export default function Team() {
           ))}
         </div>
 
-        {/* مكان مخصص لصور الفريق ولقطات التنفيذ — سيُضاف لاحقًا */}
-        <div className="mt-14">
-          <h3 className="mb-4 text-lg font-extrabold text-brand-black dark:text-white">صور الفريق ولقطات التنفيذ</h3>
+        {/* صور الفريق ولقطات التنفيذ — أضف المسارات في src/data/team.ts */}
+        <div className="mt-14 rounded-3xl border-2 border-brand-red/40 bg-brand-red/5 p-6 sm:p-8 dark:bg-brand-red/10">
+          <h3 className="mb-1 text-center text-xl font-black text-brand-black sm:text-2xl dark:text-white">صور الفريق ولقطات التنفيذ</h3>
+          <p className="mb-6 text-center text-sm text-brand-grey-text dark:text-white/60">لحظات من التجهيز والتنفيذ.</p>
           {teamGalleryPlaceholders.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-black/15 bg-brand-grey-light p-10 text-center dark:border-white/15 dark:bg-white/[0.03]">
-              <p className="text-sm text-brand-grey-text dark:text-white/50">
-                سيتم إضافة المادة قريبًا.
-              </p>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} className="flex aspect-square items-center justify-center rounded-2xl border-2 border-dashed border-brand-red/40 bg-white p-2 text-center text-xs font-semibold text-brand-red dark:bg-white/5">
+                  سيتم إضافة المادة قريبًا.
+                </div>
+              ))}
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {teamGalleryPlaceholders.map((src) => (
-                <img key={src} src={src} alt="لقطة من فريق التنفيذ" className="aspect-square w-full rounded-xl object-cover" />
+                <img key={src} src={src} alt="لقطة من فريق التنفيذ" className="aspect-square w-full rounded-2xl object-cover" />
               ))}
             </div>
           )}

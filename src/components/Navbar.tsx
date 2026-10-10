@@ -14,15 +14,18 @@ import WifiConnect from "./WifiConnect";
  */
 const navLinks = [
   { label: "الرئيسية", href: "/" },
-  { label: "عن الورشة", href: "/#about" },
+  { label: "عن الورشة", href: "/about" },
   { label: "الأجندة", href: "/agenda" },
+  { label: "الألعاب", href: "/games" },
   { label: "الأدوات", href: "/tools" },
-  { label: "التطبيقات العملية", href: "/#applications" },
+  { label: "التطبيقات العملية", href: "/applications" },
   { label: "مواد الورشة", href: "/materials" },
   { label: "فريق التنفيذ", href: "/team" },
-  { label: "التشويق", href: "/#teaser" },
-  { label: "التوثيق والنتائج", href: "/documentation" },
-  { label: "الأسئلة الشائعة", href: "/#faq" },
+  { label: "مفاجأة Media Hub", href: "/teaser" },
+  { label: "توثيق اليوم", href: "/documentation" },
+  { label: "الريلز", href: "/reels" },
+  { label: "ماذا خرجنا به؟", href: "/results" },
+  { label: "الأسئلة الشائعة", href: "/faq" },
 ];
 
 export default function Navbar() {
@@ -36,11 +39,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/" && !location.hash;
-    if (href.startsWith("/#")) return location.pathname === "/" && location.hash === href.slice(1);
-    return location.pathname === href;
-  };
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <header
