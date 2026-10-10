@@ -8,6 +8,8 @@ export interface Game {
   by: string;
   description: string;
   url: string;
+  /** true = تتعرض جوه الصفحة (iframe) بدل ما تفتح في تبويب جديد */
+  embed?: boolean;
 }
 
 export const GAME_PENDING = "[سيتم إضافة اللعبة هنا]";
@@ -18,5 +20,6 @@ export const games: Game[] = [
     by: "أحمد",
     description: "لعبة تفاعلية صممها أحمد ضمن أنشطة ورشة الذكاء الاصطناعي.",
     url: "",
+    embed: true,
   },
 ];

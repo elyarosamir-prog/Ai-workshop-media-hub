@@ -24,6 +24,8 @@ const navLinks = [
   { label: "مفاجأة Media Hub", href: "/teaser" },
   { label: "توثيق اليوم", href: "/documentation" },
   { label: "الريلز", href: "/reels" },
+  { label: "نتائج التطبيق العملي", href: "/participants-results" },
+  { label: "الفيدباك", href: "/feedback" },
   { label: "ماذا خرجنا به؟", href: "/results" },
   { label: "الأسئلة الشائعة", href: "/faq" },
 ];
@@ -43,7 +45,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-colors ${
+      className={`relative z-50 border-b transition-colors lg:sticky lg:top-0 ${
         scrolled
           ? "border-black/5 bg-white/95 backdrop-blur dark:border-white/10 dark:bg-brand-black/95"
           : "border-transparent bg-white dark:bg-brand-black"
@@ -66,9 +68,9 @@ export default function Navbar() {
 
       {/* شريط الروابط: ظاهر دايمًا على كل المقاسات، وقابل للتمرير الأفقي لو مساحته أكبر من الشاشة */}
       <nav className="border-t border-black/5 dark:border-white/10">
-        <ul className="scrollbar-none flex max-w-7xl gap-1 overflow-x-auto px-3 py-2 sm:mx-auto sm:px-6">
+        <ul className="flex max-w-7xl flex-wrap justify-center gap-1.5 px-3 py-2 sm:mx-auto sm:px-6">
           {navLinks.map((link) => (
-            <li key={link.href} className="shrink-0">
+            <li key={link.href}>
               <Link
                 to={link.href}
                 className={`block whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors sm:text-sm ${

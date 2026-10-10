@@ -73,20 +73,16 @@ export default function Tools() {
         <SectionHeading title="أدوات الورشة" subtitle="كل الأدوات في مكان واحد — دوس على اسم الأداة فوق تنزلك عليها على طول." />
 
         {/* شريط تنقّل سريع بين الأدوات: دوس على أي اسم وينزلك لمكان الكارت بتاعها */}
-        <div className="sticky top-[104px] z-30 -mx-4 mb-8 bg-brand-grey-light/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:border-black/10 dark:bg-brand-black/95 dark:sm:border-white/10">
-          <ul className="scrollbar-none flex gap-2 overflow-x-auto">
-            {allTools.map((t) => (
-              <li key={t.name} className="shrink-0">
-                <button
-                  onClick={() => jumpTo(t.name)}
-                  className="whitespace-nowrap rounded-full border border-brand-red/30 bg-white px-3.5 py-1.5 text-xs font-bold text-brand-red transition hover:bg-brand-red hover:text-white dark:border-brand-red/40 dark:bg-white/5"
-                >
-                  {t.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* أزرار الأدوات: كلها ظاهرة تحت بعض (بتلتف على أكتر من سطر). دوس على أي اسم وينزلك على كارتها */}
+        <ul className="mb-8 flex flex-wrap justify-center gap-2">
+          {allTools.map((t) => (
+            <li key={t.name}>
+              <button onClick={() => jumpTo(t.name)} className="rounded-full border border-brand-red/30 bg-white px-3.5 py-1.5 text-xs font-bold text-brand-red transition hover:bg-brand-red hover:text-white dark:border-brand-red/40 dark:bg-white/5">
+                {t.name}
+              </button>
+            </li>
+          ))}
+        </ul>
 
         <div className="mx-auto mb-10 max-w-md">
           <div className="relative">

@@ -15,7 +15,12 @@ export default function Games() {
               <h3 className="mb-1 text-lg font-extrabold text-white">{g.title}</h3>
               <p className="mb-2 text-xs font-bold text-brand-red">تصميم: {g.by}</p>
               <p className="mb-5 text-sm text-white/60">{g.description}</p>
-              {g.url ? (
+              {g.url && g.embed ? (
+                <div className="space-y-3">
+                  <iframe src={g.url} title={g.title} className="h-[560px] w-full rounded-xl border border-white/10 bg-black" allow="fullscreen" />
+                  <a href={g.url} target="_blank" rel="noopener noreferrer" className="inline-block text-xs font-bold text-brand-red">افتح في صفحة كاملة ←</a>
+                </div>
+              ) : g.url ? (
                 <a href={g.url} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full bg-brand-red px-6 py-2.5 text-sm font-bold text-white hover:bg-brand-red-dark">جرّب اللعبة</a>
               ) : (
                 <span className="inline-block rounded-full border border-dashed border-white/30 px-5 py-2 text-xs text-white/60">{GAME_PENDING}</span>

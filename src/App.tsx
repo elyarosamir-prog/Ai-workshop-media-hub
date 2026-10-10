@@ -10,6 +10,8 @@ import Teaser from "./pages/Teaser";
 import Reels from "./pages/Reels";
 import Results from "./pages/Results";
 import Games from "./pages/Games";
+import Feedback from "./pages/Feedback";
+import ParticipantResults from "./pages/ParticipantResults";
 import Home from "./pages/Home";
 import Agenda from "./pages/Agenda";
 import Tools from "./pages/Tools";
@@ -37,6 +39,8 @@ export default function App() {
           <Route path="/reels" element={<Reels />} />
           <Route path="/results" element={<Results />} />
           <Route path="/games" element={<Games />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/participants-results" element={<ParticipantResults />} />
         </Routes>
       </main>
       <Footer />

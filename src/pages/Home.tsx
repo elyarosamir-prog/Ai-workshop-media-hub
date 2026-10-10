@@ -23,6 +23,8 @@ const quickLinks = [
   { to: "/teaser", label: "مفاجأة Media Hub", desc: "فيديو من التجهيزات" },
   { to: "/documentation", label: "توثيق اليوم", desc: "صور وملفات الورشة" },
   { to: "/reels", label: "الريلز", desc: "ريلز وترندات الورشة" },
+  { to: "/participants-results", label: "نتائج التطبيق العملي", desc: "شغل المشاركين بالأدوات" },
+  { to: "/feedback", label: "الفيدباك", desc: "كلمات الحضور والمدربين" },
   { to: "/results", label: "ماذا خرجنا به؟", desc: "نتائج الورشة" },
   { to: "/faq", label: "الأسئلة الشائعة", desc: "إجابات سريعة" },
 ];

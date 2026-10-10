@@ -11,6 +11,7 @@ export default function VideoGroup({ title, items }: { title: string; items: Ree
             <video src={r.src} poster={r.poster} controls preload="metadata" playsInline className="w-full rounded-2xl border border-black/10 bg-black dark:border-white/10" />
             <p className="mt-2 text-sm font-bold text-brand-black dark:text-white">{r.title}</p>
             <p className="text-xs text-brand-red">{r.by}</p>
+            {r.caption && <p className="mt-2 whitespace-pre-line text-xs leading-relaxed text-brand-grey-text dark:text-white/60">{r.caption}</p>}
           </div>
         ))}
       </div>

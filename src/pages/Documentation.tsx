@@ -1,4 +1,4 @@
-import { documentationSections, mediaLinks, MEDIA_PENDING } from "../data/documentation";
+import { announcementPhotos, documentationSections, mediaLinks, MEDIA_PENDING } from "../data/documentation";
 import SectionHeading from "../components/SectionHeading";
 
 export default function Documentation() {
@@ -6,6 +6,18 @@ export default function Documentation() {
     <div className="bg-brand-grey-light px-4 py-16 sm:px-6 sm:py-20 dark:bg-brand-black">
       <div className="mx-auto max-w-5xl">
         <SectionHeading title="توثيق اليوم" subtitle="صور الورشة ولقطاتها. يتم تحديث هذا القسم بالمواد أولًا بأول." />
+
+        <div className="mb-14">
+          <h3 className="mb-4 text-lg font-extrabold text-brand-black dark:text-white">من حملة إعلان الورشة</h3>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {announcementPhotos.map((a) => (
+              <figure key={a.src} className="overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/10 dark:bg-white/[0.04]">
+                <img src={a.src} alt={a.alt} className="w-full" />
+                <figcaption className="whitespace-pre-line p-4 text-sm leading-relaxed text-brand-grey-text dark:text-white/70">{a.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
 
         <div className="mb-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {documentationSections.map((label) => (
