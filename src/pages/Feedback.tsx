@@ -1,6 +1,17 @@
 import { useState } from "react";
-import { feedback, feedbackWall } from "../data/feedback";
+import { feedback, feedbackWall, thanksPosters } from "../data/feedback";
 import SectionHeading from "../components/SectionHeading";
+
+/** يعرض @[اسم] كمنشن واضح بلون مختلف */
+function renderText(text: string) {
+  return text.split(/(@\[[^\]]+\])/g).map((part, i) =>
+    part.startsWith("@[") ? (
+      <span key={i} className="rounded bg-brand-red/10 px-1 font-bold text-brand-red">@{part.slice(2, -1)}</span>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+}
 
 export default function Feedback() {
   const [zoom, setZoom] = useState(false);
@@ -25,13 +36,25 @@ export default function Feedback() {
         <div className="grid gap-4 sm:grid-cols-2">
           {feedback.map((f, i) => (
             <blockquote key={i} className="rounded-2xl border-s-4 border-brand-red bg-brand-grey-light p-5 dark:bg-white/[0.04]">
-              <p className="mb-3 text-sm leading-relaxed text-brand-black dark:text-white/90">{f.text}</p>
+              <p className="mb-3 whitespace-pre-line text-sm leading-relaxed text-brand-black dark:text-white/90">{renderText(f.text)}</p>
               <footer className="text-xs font-bold text-brand-red">
                 {f.name}
                 {f.role && <span className="font-medium text-brand-grey-text dark:text-white/50"> — {f.role}</span>}
               </footer>
             </blockquote>
           ))}
+        </div>
+
+        <div className="mt-14">
+          <h3 className="mb-4 text-lg font-extrabold text-brand-black dark:text-white">بوسترات شكر من الحضور</h3>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {thanksPosters.map((tp) => (
+              <figure key={tp.src} className="overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/10 dark:bg-white/[0.04]">
+                <img src={tp.src} alt={tp.alt} className="w-full" />
+                <figcaption className="p-4 text-sm text-brand-grey-text dark:text-white/70">{tp.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </div>
